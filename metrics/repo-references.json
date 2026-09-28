@@ -1,5 +1,58 @@
 [
   {
+    "name": "0xmortuex/claude-code-skills",
+    "url": "https://github.com/0xmortuex/claude-code-skills",
+    "description": "A curated pack of 16 Claude Code skills for the unglamorous work that ships software - ship-it, readme-forge, security-sweep, git-rescue, devlog, and more. Each one researched first: only problems no prominent existing skill solves. No 40-skill kitchen sink.",
+    "files": [
+      "BACKLOG.md"
+    ]
+  },
+  {
+    "name": "FlyingWHR/tashan",
+    "url": "https://github.com/FlyingWHR/tashan",
+    "description": "",
+    "files": [
+      "web/capability/plugin-rh-uxd-ai-helpers-pf-mcp.html",
+      "web/capability/plugin-rh-uxd-ai-helpers-pf-react.html",
+      "web/capability/plugin-rh-uxd-ai-helpers-patternfly.html",
+      "web/capability/plugin-rh-uxd-ai-helpers-pf-workshop.html",
+      "web/capability/plugin-rh-uxd-ai-helpers-uxd-workshop.html",
+      "web/capability/plugin-rh-uxd-ai-helpers-pf-migration.html",
+      "web/capability/plugin-rh-uxd-ai-helpers-pf-code-review.html",
+      "web/capability/plugin-rh-uxd-ai-helpers-pf-design-audit.html",
+      "web/capability/plugin-rh-uxd-ai-helpers-pf-design-guide.html"
+    ]
+  },
+  {
+    "name": "muditmittal/dbui",
+    "url": "https://github.com/muditmittal/dbui",
+    "description": "DBUI — Databricks UI Kit. DuBois design language on shadcn components.",
+    "files": [
+      "research/ux-standards/extracts/patternfly/AI--marketplace--marketplace.md",
+      "research/ux-standards/extracts/patternfly/AI--rapid-prototyping--enhancing-existing-projects.md",
+      "research/ux-standards/extracts/patternfly/AI--rapid-prototyping--new-prototypes.md"
+    ]
+  },
+  {
+    "name": "opendatahub-io/agentic-ci",
+    "url": "https://github.com/opendatahub-io/agentic-ci",
+    "description": "Run AI coding agents in sandboxed CI environments",
+    "files": [
+      "tests/test_plugins.py"
+    ]
+  },
+  {
+    "name": "opendatahub-io/skills-registry",
+    "url": "https://github.com/opendatahub-io/skills-registry",
+    "description": "",
+    "files": [
+      "CONTRIBUTING.md",
+      ".agents/plugins/marketplace.json",
+      ".claude-plugin/marketplace.json",
+      "registry.yaml"
+    ]
+  },
+  {
     "name": "openshift-eng/ai-helpers",
     "url": "https://github.com/openshift-eng/ai-helpers",
     "description": "Developer productivity tools for Claude Code & other AI assistants",
@@ -13,6 +66,7 @@
     "description": "An MCP server that provides access to PatternFly rules and documentation.",
     "files": [
       "src/docs.json",
+      "src/collection.patternFlyApi.json",
       "src/__tests__/__snapshots__/collection.patternFlyDocs.test.ts.snap"
     ]
   },
@@ -22,8 +76,8 @@
     "description": "Home of patternfly.org",
     "files": [
       "packages/documentation-site/patternfly-docs/content/AI/marketplace/marketplace.md",
-      "packages/documentation-site/patternfly-docs/content/AI/rapid-prototyping/new-prototypes.md",
-      "packages/documentation-site/patternfly-docs/content/AI/rapid-prototyping/enhancing-existing-projects.md"
+      "packages/documentation-site/patternfly-docs/content/AI/rapid-prototyping/enhancing-existing-projects.md",
+      "packages/documentation-site/patternfly-docs/content/AI/rapid-prototyping/new-prototypes.md"
     ]
   }
 ]

@@ -25,8 +25,15 @@ plugins/uxd-workshop/skills/uxd-research-heuristic-eval-workspace/
 # Root-level heuristic-eval report dumps
 /heuristic-eval-*
 
+# Python bytecode
+__pycache__/
+*.pyc
+
 # Environment variables (contributor credentials)
 .env*
 
 # Local Claude Code settings (user-specific)
 .claude/settings.local.json
+
+# Local OpenCode overrides (user-specific)
+AGENTS.local.md

@@ -2,6 +2,7 @@
   "name": "patternfly",
   "description": "Everything you need for PatternFly development — React components, design guidance, migration, and MCP docs",
   "dependencies": [
+    "pf-assist",
     "pf-react",
     "pf-design-guide",
     "pf-design-audit",
@@ -10,7 +11,6 @@
     "pf-code-review",
     "pf-mcp"
   ],
-  "agents": ["./agents/pf-assist/pf-assist.md"],
   "author": {
     "name": "UXD Team",
     "url": "https://www.patternfly.org"
