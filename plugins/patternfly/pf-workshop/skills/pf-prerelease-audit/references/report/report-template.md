@@ -1,5 +1,5 @@
 <!--
-Shared Markdown report template for all pf-prerelease-audit-* skills.
+Markdown report template for the pf-prerelease-audit skill.
 Fill placeholders from the data model in ./schema.md. Delete any section
 with no data for this run rather than leaving it as "N/A" filler — see
 schema.md's "Category vs. skill capability" note.

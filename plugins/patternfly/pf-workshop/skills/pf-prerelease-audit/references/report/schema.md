@@ -1,13 +1,13 @@
-# PatternFly Prerelease Report — Shared Data Model
+# PatternFly Prerelease Report — Data Model
 
-Every `pf-prerelease-audit-*` skill fills in this data model at the end of its run, then renders it into **both** [`report-template.md`](./report-template.md) and [`report-template.html`](./report-template.html). One data model, two outputs — markdown for PR/commit/Slack sharing, HTML for stakeholder-facing sharing (PF team, non-engineers).
+The `pf-prerelease-audit` skill fills in this data model at the end of an audit, then renders it into **both** [`report-template.md`](./report-template.md) and [`report-template.html`](./report-template.html). One data model, two outputs — Markdown for PR/commit/Slack sharing, HTML for stakeholder-facing sharing.
 
-Not every skill has every field (e.g. odh-dashboard has no Cypress visual diffs; console has no VPN-gated visual pass). Omit sections with no data rather than filling them with placeholder text — a template section with nothing to show should be dropped, not left as "N/A" filler.
+Not every consumer project will have data for every field. Omit sections with no data rather than filling them with placeholder text — a template section with nothing to show should be dropped, not left as "N/A" filler.
 
 ## Fields
 
 ```text
-repo            — e.g. "openshift/console", "RedHatInsights/insights-chrome"
+repo            — consuming repository name or URL
 branch          — testing branch name
 date            — YYYY-MM-DD
 tester          — name, if known
@@ -34,7 +34,7 @@ findings[]      — { category, file, description, verdict }
                   "css-scss-break" | "runtime-failure" | "bundle-size-change" |
                   "peer-dep-warning" | "build-tooling-artifact"
                   ("build-tooling-artifact" covers things that look like a PF break but
-                  aren't — e.g. odh-dashboard's npm hoisting/CSS-include false positives.)
+                   aren't — e.g. package-manager resolution or bundler configuration artifacts.)
                   verdict is a short human judgment, e.g. "safe to accept" or
                   "needs investigation" or "fixed — see Fixes Applied".
                   Only include a category header in the rendered report if findings exist
@@ -44,10 +44,8 @@ findings[]      — { category, file, description, verdict }
 
 installNotes[]  — { workaround, cause, outcome }
                   outcome is one of: "worked" | "did-not-work-fallback-used" | "not-needed"
-                  Always state what was TRIED even if it failed — e.g. insights-chrome's
-                  finding that npm overrides didn't resolve ERESOLVE and
-                  --legacy-peer-deps was the real fix. Don't only document the
-                  happy path.
+                   Always state what was TRIED even if it failed. Don't only document
+                   the happy path.
 
 fixesApplied[]  — { file, description } — source changes made to unblock the bump.
                   Omit section entirely if none were needed.
@@ -68,4 +66,4 @@ env             — { node, packageManager, packageManagerVersion, os, bundler? 
 
 ## Category vs. skill capability
 
-Before writing `findings[]`, check which categories this skill's phases can actually detect. If a skill has no bundle-analysis phase, no CSS diffing phase, etc., leave that category out of the rendered report rather than asserting "None found" — the latter implies coverage that doesn't exist. Note the gap in Recommendations instead, e.g. "bundle size impact not measured in this run."
+Before writing `findings[]`, check which categories the audit actually covered. If the project has no bundle-analysis phase, CSS diffing phase, etc., leave that category out of the rendered report rather than asserting "None found" — the latter implies coverage that doesn't exist. Note the gap in Recommendations instead, e.g. "bundle size impact not measured in this run."
