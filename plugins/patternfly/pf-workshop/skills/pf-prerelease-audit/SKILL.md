@@ -1,6 +1,7 @@
 ---
 name: pf-prerelease-audit
 description: Audit a consumer project against PatternFly prerelease packages, compare validation results, classify compatibility findings, and produce a report. Use when evaluating a PatternFly release candidate in any consuming repository.
+version: 0.1.0
 disable-model-invocation: true
 ---
 
