@@ -29,11 +29,12 @@ jobs:
           | OPENSHELL_VERSION="v${OPENSHELL_VERSION}" sh
 
       - name: Set up Fullsend
-        run: |
-          mkdir -p ~/fullsend-bin
-          cd ~/fullsend-bin
-          curl -fsSL -L https://github.com/fullsend-ai/fullsend/releases/download/v0.43.0/fullsend_0.43.0_linux_amd64.tar.gz | tar xz
-          echo "$PWD" >> "$GITHUB_PATH"
+        uses: fullsend-ai/fullsend/.github/actions/install-fullsend-cli@818c62f00f050af9afe9a1f229d65ff739568a54 # current main
+        with:
+          mode: upstream
+          workflow_repository: fullsend-ai/fullsend
+          workflow_sha: 818c62f00f050af9afe9a1f229d65ff739568a54
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run Fullsend OpenAI review
         env:
