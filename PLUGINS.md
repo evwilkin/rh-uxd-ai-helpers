@@ -253,6 +253,7 @@ PatternFly team tools and skill incubation — issue triage, release management,
 <tr><td nowrap><code>pf-figma-diff</code></td><td>Diff Figma designs to identify what changed and generate code update checklists.</td><td>—</td></tr>
 <tr><td nowrap><code>pf-modifier-scan</code></td><td>Analyze PatternFly modifier class (pf-m-*) usage across SCSS files and generate usage reports.</td><td>—</td></tr>
 <tr><td nowrap><code>pf-org-version-update</code></td><td>Update patternfly-org for a new PatternFly release — resolve versions, update package.json and versions.json, and provide build steps.</td><td>—</td></tr>
+<tr><td nowrap><code>pf-prerelease-audit</code></td><td>Audit a consumer project against PatternFly prerelease packages, compare validation results, classify compatibility findings, and produce a report.</td><td>—</td></tr>
 <tr><td nowrap><code>pf-prototype-mode</code></td><td>Enable prototype mode for React apps with grayscale styling and a banner overlay.</td><td>—</td></tr>
 <tr><td nowrap><code>pf-quarterly-report-gen</code></td><td>Generate quarterly Jira status reports with RAG assessment, blocker tracking, and next-quarter recommendations.</td><td>—</td></tr>
 <tr><td nowrap><code>pf-rhds-icon-finder</code></td><td>Find Red Hat Design System icons (@rhds/icons) by keyword or use case with visual previews.</td><td>—</td></tr>
@@ -339,6 +340,7 @@ Generated from skill frontmatter and section headings. Token cost is a relative 
 | `pf-figma-diff` | Contributors and maintainers | Task context | FIGMACHANGELOG.md - Internal design team changelog with all updates RELEASENOTES.md - Consume... | L |
 | `pf-modifier-scan` | Contributors and maintainers | The user will specify a scope: all components (default), a specific component, a specific mod... | Write a Markdown file with: | S |
 | `pf-org-version-update` | Contributors and maintainers | Task context | Structured result | M |
+| `pf-prerelease-audit` | Contributors and maintainers | Task context | Structured result | M |
 | `pf-prototype-mode` | Contributors and maintainers | Task context | Structured result | S |
 | `pf-quarterly-report-gen` | Contributors and maintainers | Task context | Structured result | M |
 | `pf-rhds-icon-finder` | Contributors and maintainers | Task context | Structured result | M |
