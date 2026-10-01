@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- `uxd-research-heuristic-eval`: **promoted from experimental → stable**
+  (`status: stable`). Promotion gate met — the colocated eval harness passes
+  11/11 judges at `pass_rate 1.0` on `main`, and the skill was validated against a
+  real product surface in both Mode A and Mode B.
 - `uxd-research-heuristic-eval`: the specialist-lenses clarifying question now
   goes through the interactive `AskUserQuestion` mechanism (like the framework
   question) instead of free-text prose, and is explicitly non-blocking —
