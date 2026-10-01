@@ -51,7 +51,7 @@
 </head>
 <body>
 
-<!-- REPLACE: repo name and version in heading -->
+<!-- REPLACE: repo name and version in heading; escape generated values as HTML text. -->
 <h1>PatternFly X.Y Prerelease Compatibility Report</h1>
 
 <!-- REPLACE: repo, branch, date, tester -->
@@ -62,10 +62,9 @@
   Tester: {{TESTER}}
 </p>
 
-<!-- REPLACE: use exactly one verdict class — compatible / regressions / blocked — per schema.md's verdict rules -->
-<div class="verdict compatible">✅ Compatible — {{VERDICT_NOTE}}</div>
-<!-- <div class="verdict regressions">⚠️ Regressions found — {{VERDICT_NOTE}}</div> -->
-<!-- <div class="verdict blocked">❌ Blocked — {{VERDICT_NOTE}}</div> -->
+<!-- Replace with exactly one template-controlled verdict block mapped from schema.md.
+     Escape the generated verdict note before placing it in the block. -->
+{{VERDICT_BLOCK}}
 
 <h2>Check Summary</h2>
 <!--
@@ -102,53 +101,29 @@
     </tr>
   </tbody>
 </table>
-<!-- REPLACE or delete: packages present on the prerelease manifest but not consumed by this repo -->
+<!-- OPTIONAL: omit this paragraph when no unconsumed packages are present. -->
 <p><em>Not consumed by {{REPO_SHORT}}:</em> {{list}}</p>
 
 <h2>Findings</h2>
-<!--
-  REPLACE: one subsection per category this skill's phases can actually detect
-  (see schema.md's category list and "Category vs. skill capability" note).
-  Only assert "None observed" for a category the skill actually checked —
-  omit categories the skill has no way to test rather than implying coverage.
--->
-<h3>TypeScript API break</h3>
-<p>{{finding, or "None observed."}}</p>
+<!-- Replace with category sections only for categories with findings or checks actually run;
+     omit this entire Findings section if there are no applicable categories. Omit unsupported
+     categories. For `bundle-size-change`, render an <h3>Bundle-size change</h3> section with the
+     measured change and verdict; include it only when bundle size was measured. -->
+{{FINDINGS_SECTIONS_HTML}}
 
-<h3>Import path break</h3>
-<p>{{finding, or "None observed."}}</p>
+<!-- OPTIONAL: include visual-diff details only when a visual finding/diff exists.
+     Render diff content as escaped plain text inside <pre><code>, not as markup. -->
+{{VISUAL_DIFF_SECTION_HTML}}
 
-<h3>CSS/SCSS break</h3>
-<p>{{finding, or "None observed."}}</p>
-
-<h3>Runtime failure</h3>
-<p>{{finding, or "None observed."}}</p>
-
-<h3>Peer dependency warning</h3>
-<p>{{finding, or "None observed."}}</p>
-
-<!-- Include only if a false-positive investigation happened (e.g. npm hoisting mistaken for a PF break) -->
-<h3>Build tooling artifact</h3>
-<p>{{finding, or delete this h3 block if none arose}}</p>
-
-<!-- Use <details> for any finding with a non-trivial diff (snapshot change, visual regression) -->
-<details>
-  <summary>{{View diff — short description}}</summary>
-  <div class="details-body">
-    <p><strong>File:</strong> <code>{{path}}</code><br>
-    <strong>Tests affected:</strong> <code>{{test name}}</code></p>
-    <p><strong>Change:</strong> {{what changed and why}}</p>
-    <pre><code>{{diff, using .added/.removed spans}}</code></pre>
-    <p><strong>Verdict:</strong> {{safe to accept / needs investigation}}</p>
-  </div>
-</details>
-
-<!-- Embed visual diff images as base64 so the report stays a single self-contained file -->
-<img class="snapshot" src="data:image/png;base64,{{BASE64}}" alt="{{description}}">
+<!-- OPTIONAL: include an image only when a visual-diff finding exists and has a generated PNG
+     snapshot. Validate its base64 strictly and verify the decoded PNG signature before forming
+     this template-controlled <img> element; escape the alt text. Omit it when no visual diff
+     was produced or no image is available. -->
+{{SNAPSHOT_IMAGE_HTML}}
 
 <h2>Installation Notes</h2>
 <!-- REPLACE: always state what was tried, including failed attempts. Delete this
-     section only if install had zero friction. -->
+     section only if install had zero friction. Escape generated values as HTML text. -->
 <div class="callout warn">
   <strong>{{workaround}}</strong> — cause: {{cause}}.
   <br><br>
@@ -156,12 +131,14 @@
 </div>
 
 <h2>Fixes Applied</h2>
-<!-- REPLACE: source changes made to unblock the bump, or delete section if none needed -->
+<!-- REPLACE: source changes made to unblock the bump, or delete section if none needed.
+     Escape generated values as HTML text. -->
 <p>{{description, or "None required."}}</p>
 
 <h2>Pre-existing Observations</h2>
 <!-- REPLACE: warnings/failures present in both baseline and prerelease (or on main
-     independent of this bump) — call these out so they aren't mistaken for regressions -->
+     independent of this bump) — call these out so they aren't mistaken for regressions.
+     Omit this section when there are no observations; escape generated values as HTML text. -->
 <ul>
   <li>{{observation}}</li>
 </ul>

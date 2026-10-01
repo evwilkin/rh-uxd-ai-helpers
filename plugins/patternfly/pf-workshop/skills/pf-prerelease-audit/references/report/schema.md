@@ -67,3 +67,11 @@ env             — { node, packageManager, packageManagerVersion, os, bundler? 
 ## Category vs. skill capability
 
 Before writing `findings[]`, check which categories the audit actually covered. If the project has no bundle-analysis phase, CSS diffing phase, etc., leave that category out of the rendered report rather than asserting "None found" — the latter implies coverage that doesn't exist. Note the gap in Recommendations instead, e.g. "bundle size impact not measured in this run."
+
+## Rendering contract
+
+- Render exactly one verdict, selected from the `verdict` enum. Do not leave alternative verdicts in the report.
+- Render a category section only when findings exist for it or the audit performed a check capable of detecting it. Use "None observed" only in the latter case; omit unsupported categories. Map `bundle-size-change` to a "Bundle-size change" section with the measured change and verdict, and render it only when bundle size was measured.
+- Omit optional sections with no corresponding data, including unconsumed packages, fixes, pre-existing observations, visual diffs, and snapshot images. Include a snapshot only with its visual-diff finding; omit both details and image when no visual diff was produced.
+- For HTML, escape every generated value for its insertion context (including text in headings, attributes, `<code>`, and `<pre>`). For manual substitution, escape `&`, `<`, `>`, `"`, and `'` as `&amp;`, `&lt;`, `&gt;`, `&quot;`, and `&#x27;`. Keep markup limited to fixed template structure and fixed category/verdict mappings; never treat project-derived text or diffs as HTML.
+- Include a snapshot only when it is a generated PNG. Strictly decode its base64 and verify the PNG signature before constructing a `data:image/png;base64,...` URI; escape the image alt text. Omit the image element if no valid snapshot is available.
