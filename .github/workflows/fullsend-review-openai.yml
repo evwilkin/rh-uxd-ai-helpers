@@ -22,18 +22,19 @@ jobs:
 
       - name: Install openshell
         run: |
-          OPENSHELL_VERSION=0.0.116
-          OPENSHELL_SHA=d1155aa70042d3e2ee49dbfa15346b108b7c1d92
+          OPENSHELL_VERSION=0.1.2
+          OPENSHELL_SHA=6648bd0c290efbc41ba131ee9831ee45cd431f94
           curl -LsSf --retry 3 --retry-delay 5 \
             "https://raw.githubusercontent.com/NVIDIA/OpenShell/${OPENSHELL_SHA}/install.sh" \
           | OPENSHELL_VERSION="v${OPENSHELL_VERSION}" sh
 
       - name: Set up Fullsend
-        run: |
-          mkdir -p ~/fullsend-bin
-          cd ~/fullsend-bin
-          curl -fsSL -L https://github.com/fullsend-ai/fullsend/releases/download/v0.43.0/fullsend_0.43.0_linux_amd64.tar.gz | tar xz
-          echo "$PWD" >> "$GITHUB_PATH"
+        uses: fullsend-ai/fullsend/.github/actions/install-fullsend-cli@818c62f00f050af9afe9a1f229d65ff739568a54 # current main
+        with:
+          mode: upstream
+          workflow_repository: fullsend-ai/fullsend
+          workflow_sha: 818c62f00f050af9afe9a1f229d65ff739568a54
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run Fullsend OpenAI review
         env:
@@ -48,8 +49,6 @@ jobs:
           PRIOR_REVIEW_PROVENANCE: ""
           REVIEW_FINDING_SEVERITY_THRESHOLD: medium
         run: |
-          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/fullsend-unused-gcp-credentials.json"
-          : > "$GOOGLE_APPLICATION_CREDENTIALS"
           fullsend run review \
             --fullsend-dir .fullsend/openai \
             --target-repo . \

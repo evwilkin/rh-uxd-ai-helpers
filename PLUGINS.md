@@ -61,6 +61,9 @@ UX design workflow — Figma context, design evaluation, and implementation hand
 
 <table>
 <tr><th>Skill</th><th>Description</th><th>Eval</th></tr>
+<tr><td nowrap><code>uxd-canvas-create</code></td><td>Create or refine a canvas as local JSON Canvas, a Miro board, or both.</td><td>stable</td></tr>
+<tr><td nowrap><code>uxd-canvas-export</code></td><td>Export a canvas as a local HTML viewer, canvas.json, or Mermaid.</td><td>stable</td></tr>
+<tr><td nowrap><code>uxd-canvas-publish</code></td><td>Publish an exported canvas to a git repository, GitHub Pages, GitLab Pages, or Vercel.</td><td>stable</td></tr>
 <tr><td nowrap><code>uxd-design-handoff</code></td><td>Produce an implementation-ready design handoff spec from a validated design.</td><td>stable</td></tr>
 <tr><td nowrap><code>uxd-figma-read</code></td><td>Retrieve design context from a Figma file.</td><td>stable</td></tr>
 </table>
@@ -101,7 +104,12 @@ UX research pipeline — heuristic evaluation, usability testing, research metho
 
 UXD skill incubator — new skills start here before graduating to consumer plugins
 
-No skills or agents yet.
+<table>
+<tr><th>Skill</th><th>Description</th><th>Eval</th></tr>
+<tr><td nowrap><code>uxd-experience-narrative-create</code></td><td>Turn a problem brief into a scene-by-scene experience a prototype can show.</td><td>—</td></tr>
+<tr><td nowrap><code>uxd-experience-review</code></td><td>Judge whether an experience narrative and prototype carry the framed problem, and draft the stakeholder demo.</td><td>—</td></tr>
+<tr><td nowrap><code>uxd-problem-brief-create</code></td><td>Frame a product problem as a brief: who is affected, the current condition, evidence versus assumptions, and what is in scope.</td><td>—</td></tr>
+</table>
 
 
 <br>
@@ -265,8 +273,8 @@ PatternFly team tools and skill incubation — issue triage, release management,
 
 **Eval coverage**
 
-- Consumer: 41/41 (100%)
-- Workshop: 0/18 (0%)
+- Consumer: 44/44 (100%)
+- Workshop: 0/20 (0%)
 
 ---
 
@@ -276,6 +284,9 @@ Generated from skill frontmatter and section headings. Token cost is a relative 
 
 | Skill | Audience | Inputs | Outputs | Token cost |
 |---|---|---|---|---|
+| `uxd-canvas-create` | UXD practitioners | Accept a brief, document, ticket, research, Mermaid source, an existing canvas, a Miro URL, o... | Structured result | L |
+| `uxd-canvas-export` | UXD practitioners | Accept a canvas directory or a path to canvas.json. A canvas directory can also contain metad... | Structured result | M |
+| `uxd-canvas-publish` | UXD practitioners | Input Source Required Export directory .artifacts/{ID}/export/ or --source Yes export-manifes... | Structured result | S |
 | `uxd-design-handoff` | UXD practitioners | Input Required Source Design artifact (prototype files, Figma screenshots, text description) ... | The handoff spec is written to a local file (markdown by default, JSON when --format=json). I... | M |
 | `uxd-figma-read` | UXD practitioners | Task context | Structured result | M |
 | `uxd-prototype-create` | UXD practitioners | Input Required Source What to prototype (Jira URL/key, Figma link, description, or idea) Yes ... | Written under .artifacts/{ID}/ in the consumer project (never ${CLAUDESKILLDIR}): Output Loca... | XL |
@@ -285,6 +296,9 @@ Generated from skill frontmatter and section headings. Token cost is a relative 
 | `uxd-discovery` | UXD practitioners | Input Type Required Default Problem source Jira issue key/URL, feature description, or proble... | Output Format Description Discovery brief Structured markdown Problem statement, user groups,... | M |
 | `uxd-evaluate-design-heuristics` | UXD practitioners | The skill expects one or more of the following, provided by the user or by an upstream skill:... | Given the required inputs, this skill produces: Verdict — Pass or Fail. Any dimension scoring... | L |
 | `uxd-research-heuristic-eval` | UXD practitioners | Input Type Required Default Interface to evaluate Screenshots, image files, text descriptions... | Output Format Location Evaluation report .md and .html [project-dir]/heuristic-eval-[date].[ext] | XL |
+| `uxd-experience-narrative-create` | UX designers | A problem brief, optional time horizon and enabling capabilities, optional target codebase | An experience narrative with a screen breakdown | M |
+| `uxd-experience-review` | UX designers | A problem brief, an experience narrative, and a prototype | A review scorecard, improvement list, and presentation plan | M |
+| `uxd-problem-brief-create` | UX designers and product managers | A problem, feature request, or discovery brief, plus optional evidence | A problem brief in markdown | M |
 | `pf-a11y-audit` | PatternFly designers and developers | Task context | Per finding: [ERRORWARNINFO] file/path.tsx:42 — description (WCAG X.X.X) Found: what was dete... | L |
 | `pf-a11y-keyboard` | PatternFly designers and developers | Source Required Description URL Yes URL to a running application (localhost or deployed) Focu... | Structured result | L |
 | `pf-a11y-test-gen` | PatternFly designers and developers | Source Required Description Component/module file Yes Path to the component or UI module to g... | Structured result | L |
