@@ -274,7 +274,7 @@ PatternFly team tools and skill incubation — issue triage, release management,
 **Eval coverage**
 
 - Consumer: 44/44 (100%)
-- Workshop: 0/20 (0%)
+- Workshop: 0/21 (0%)
 
 ---
 
