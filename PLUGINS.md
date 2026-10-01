@@ -61,6 +61,9 @@ UX design workflow — Figma context, design evaluation, and implementation hand
 
 <table>
 <tr><th>Skill</th><th>Description</th><th>Eval</th></tr>
+<tr><td nowrap><code>uxd-canvas-create</code></td><td>Create or refine a canvas as local JSON Canvas, a Miro board, or both.</td><td>stable</td></tr>
+<tr><td nowrap><code>uxd-canvas-export</code></td><td>Export a canvas as a local HTML viewer, canvas.json, or Mermaid.</td><td>stable</td></tr>
+<tr><td nowrap><code>uxd-canvas-publish</code></td><td>Publish an exported canvas to a git repository, GitHub Pages, GitLab Pages, or Vercel.</td><td>stable</td></tr>
 <tr><td nowrap><code>uxd-design-handoff</code></td><td>Produce an implementation-ready design handoff spec from a validated design.</td><td>stable</td></tr>
 <tr><td nowrap><code>uxd-figma-read</code></td><td>Retrieve design context from a Figma file.</td><td>stable</td></tr>
 </table>
@@ -269,7 +272,7 @@ PatternFly team tools and skill incubation — issue triage, release management,
 
 **Eval coverage**
 
-- Consumer: 41/41 (100%)
+- Consumer: 44/44 (100%)
 - Workshop: 0/20 (0%)
 
 ---
@@ -280,6 +283,9 @@ Generated from skill frontmatter and section headings. Token cost is a relative 
 
 | Skill | Audience | Inputs | Outputs | Token cost |
 |---|---|---|---|---|
+| `uxd-canvas-create` | UXD practitioners | Accept a brief, document, ticket, research, Mermaid source, an existing canvas, a Miro URL, o... | Structured result | L |
+| `uxd-canvas-export` | UXD practitioners | Accept a canvas directory or a path to canvas.json. A canvas directory can also contain metad... | Structured result | M |
+| `uxd-canvas-publish` | UXD practitioners | Input Source Required Export directory .artifacts/{ID}/export/ or --source Yes export-manifes... | Structured result | S |
 | `uxd-design-handoff` | UXD practitioners | Input Required Source Design artifact (prototype files, Figma screenshots, text description) ... | The handoff spec is written to a local file (markdown by default, JSON when --format=json). I... | M |
 | `uxd-figma-read` | UXD practitioners | Task context | Structured result | M |
 | `uxd-prototype-create` | UXD practitioners | Input Required Source What to prototype (Jira URL/key, Figma link, description, or idea) Yes ... | Written under .artifacts/{ID}/ in the consumer project (never ${CLAUDESKILLDIR}): Output Loca... | XL |
