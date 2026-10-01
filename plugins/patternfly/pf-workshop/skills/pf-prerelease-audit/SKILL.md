@@ -77,6 +77,8 @@ Use the shared data model in `references/report/schema.md` and render the Markdo
 
 Include only sections supported by the checks actually performed. Record package versions, baseline and prerelease outcomes, installation workarounds, findings, pre-existing observations, fixes, recommendations, and test environment. Include skipped checks and their reasons; never silently omit known coverage gaps.
 
+Render exactly one verdict line/block from the schema verdict. For findings, include only categories with findings or checks that were actually performed; use "None observed" only for a checked category. Map `bundle-size-change` to a "Bundle-size change" section with measured details and a verdict, and include it only when bundle size was measured. Omit optional sections and visual-diff details/images when their data is absent; include an image only with its visual-diff finding. In HTML, escape all generated values for their context, including text in headings, attributes, code, and preformatted diffs (`&amp;`, `&lt;`, `&gt;`, `&quot;`, `&#x27;`). Keep markup to the template's fixed structure and fixed verdict/category mappings; never insert project-derived content as HTML. Before creating a snapshot data URI, strictly validate base64 and verify the decoded bytes have the PNG signature; escape the alt text. See the rendering contract in `references/report/schema.md`.
+
 Write the completed reports into the consumer repository using the local playbook's naming/location convention, or ask the user where to save them if none is documented. Keep the reports on the audit branch unless the user requests another destination.
 
 ## Final summary

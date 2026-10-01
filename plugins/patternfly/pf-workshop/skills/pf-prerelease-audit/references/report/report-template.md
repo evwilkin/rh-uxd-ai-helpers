@@ -10,10 +10,8 @@ schema.md's "Category vs. skill capability" note.
 **Branch:** `{{BRANCH}}`
 **Tester:** {{TESTER}}
 
-<!-- Pick exactly one verdict line: -->
-> ✅ **Compatible** — {{VERDICT_NOTE}}
-> ⚠️ **Regressions found** — {{VERDICT_NOTE}}
-> ❌ **Blocked** — {{VERDICT_NOTE}}
+<!-- Replace with exactly one verdict line, mapped from schema.md's verdict value. -->
+{{VERDICT_LINE}}
 
 ## Versions Tested
 
@@ -38,30 +36,14 @@ schema.md's "Category vs. skill capability" note.
 
 ## Findings
 
-<!-- One subsection per category that this skill's phases can actually detect. Omit categories
-     the skill has no way to test (see schema.md). State "None observed" only for categories
-     the skill DID check. -->
-
-### TypeScript API break
-{{finding or "None observed."}}
-
-### Import path break
-{{finding or "None observed."}}
-
-### CSS/SCSS break
-{{finding or "None observed."}}
-
-### Runtime failure
-{{finding or "None observed."}}
-
-### Peer dependency warning
-{{finding or "None observed."}}
-
-### Build tooling artifact
-<!-- Things that look like a PF break but are actually npm/yarn hoisting, webpack config,
-     lockfile quirks, etc. Include this section whenever such a false positive was
-     investigated and ruled out — it saves the PF team from chasing a non-issue. -->
-{{finding or omit section if none arose}}
+<!-- Replace with category subsections only when findings exist or that category was checked;
+     omit this entire Findings section if there are no applicable categories.
+     Say "None observed" only for a category the audit actually checked; omit unsupported
+     categories. Supported labels include TypeScript API break, Import path break, CSS/SCSS
+     break, Runtime failure, Bundle-size change, Peer dependency warning, and Build tooling
+     artifact. For `bundle-size-change`, use the heading "Bundle-size change" and include the
+     measured change and verdict. Include it only when bundle size was measured. -->
+{{FINDINGS_SECTIONS}}
 
 ## Fixes Applied
 
