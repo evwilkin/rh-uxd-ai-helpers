@@ -340,7 +340,7 @@ Generated from skill frontmatter and section headings. Token cost is a relative 
 | `pf-figma-diff` | Contributors and maintainers | Task context | FIGMACHANGELOG.md - Internal design team changelog with all updates RELEASENOTES.md - Consume... | L |
 | `pf-modifier-scan` | Contributors and maintainers | The user will specify a scope: all components (default), a specific component, a specific mod... | Write a Markdown file with: | S |
 | `pf-org-version-update` | Contributors and maintainers | Task context | Structured result | M |
-| `pf-prerelease-audit` | Contributors and maintainers | Task context | Structured result | M |
+| `pf-prerelease-audit` | Contributors and maintainers | Task context | Structured result | L |
 | `pf-prototype-mode` | Contributors and maintainers | Task context | Structured result | S |
 | `pf-quarterly-report-gen` | Contributors and maintainers | Task context | Structured result | M |
 | `pf-rhds-icon-finder` | Contributors and maintainers | Task context | Structured result | M |
